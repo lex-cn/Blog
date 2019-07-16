@@ -10,3 +10,7 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+  - title: "分类"
+    url: /categories/
+  - title: "标签"
+    url: /tags/
