@@ -1,31 +1,4 @@
----
-title:  "Linux下我的软件列表"
-categories: 
-  - Jekyll
-tags:
-  - update
-classes: wide
-toc : true
----
-
-
-利用软件提高效率的方法
-
-1. 尽量不要使用软件
-
-    软件都是有一定的学习成本，在实用软件之前，要仔细评估自己是否需要软件。
-
-2. 仔细挑选所要使用的软件
-
-    - 要用就用十年 软件就像兵器，用得顺手需要花时间
-    - 老牌 选择老牌软件会有大量的以往资料可以查询
-    - 主流 理由同上
-    - 开源 最大限度避免版权纠纷
-    - 跨平台 即使换了平台，也能无缝切换。
- 
-3. 慢慢研究所要使用的软件
-
-    磨刀不误砍柴工
+# Linux下我的软件列表 
 
 这个软件列表只是我的个人选择，分享出来有以下几个原因
 
@@ -35,7 +8,7 @@ toc : true
 
 这里对软件的言辞简单，不参与任何争论，所有的选择只是个人的喜好而已。
 
-## 1. 桌面环境：i3wm + dmenu
+1. 桌面环境：i3wm + dmenu
 
 如果你正在使用Linux，你应该试用最少一款平铺式桌面，你会发现新的乐趣。一款这样的
 桌面才是效率之源。配合合适的启动器，更是如虎添翼。你可以达到这样一种状态
@@ -48,11 +21,11 @@ toc : true
 我原来使用dwm，后来偶然发现了i3wm，一直使用到现在。其他的平铺式桌面与之类似，大
 家可以按需使用。
 
-## 2. 登录管理器：Slim
+2. 登录管理器：Slim
 
 我用lightdm一直会在登陆界面闪屏，所以就该用了Slim，一直感觉不错，简单轻便。
 
-## 3. 浏览器：FireFox
+3. 浏览器：FireFox
 
 我使用FireFox的原因主要是以下几个原因
 
@@ -60,13 +33,13 @@ toc : true
     2. 火狐比较轻便
     3. 火狐帐号的同步非常稳定
 
-## 4. 文本编辑器：Vim
+4. 文本编辑器：Vim
 
     1. 几乎所有的发行版都装有vi或者vim
     2. 小巧的体积，强大的功能
     3. 其实并不需要理由
 
-## 5. 版本管理+博客：Git/ Bitbucket&GitHub
+5. 版本管理+博客：Git/ Bitbucket&GitHub
 
 这个组合解决了以下几个问题
     
@@ -75,50 +48,56 @@ toc : true
     3. 与他人的分享和交流
     4. 项目的存储和管理
 
-## 6. 邮箱：Outlook
+6. 邮箱：Outlook
 
 虽然微软以前在很多方面与开源背道而驰，但是不得不说Outlook/Exchange仍然是最佳的
 管理邮件和联系人信息的方式，在安全性方面也不差，在国内目前是最好的、可用的服务
 商了。
 
-## 7. 思维导图制作：ProcessOn
+7. 思维导图制作：ProcessOn
 
 免费的在线流程图制作软件，实用方便。
 
-## 8. 文档编写：TeXLive/Markdown
+8. 文档编写：TeXLive/Markdown
 
 堪称完美的软件，具有极大的实用性和方便，但是处理表格是它的弱项。
 
-## 9. 科学计算：R
+9. 科学计算：R
 
 强大而开源的数学软件，我主要用来学习统计学相关知识，也进行数据分析和数据可视化
 ，基本上替代Matlab。
 
-## 10. 垃圾清理：BleachBit
+10. 垃圾清理：BleachBit
 
 非常优秀的垃圾清理软件。
 
 Delete your private files so completely that "even God can't read them"
 according to South Carolina Representative Trey Gowdy.""
 
-## 11. ~~IDE：QtCreator~~
+11. ~~IDE：QtCreator~~
 
 主要用来编写程序的UI，还没有开始专业的学习。
 
-## 12. 看图软件：gpicview
+12. 看图软件：gpicview
 
 非常轻量级的看图软件，适合轻度用户。
 
-## 13. PDF阅读：zathura
+13. PDF阅读：zathura
 
 能够实时刷新PDF程序，而且快捷键设置与Vim类似。Vim+TeXLive+Zathura一直是我写文档
 的最佳组合。
 
-## 14. 终端：Xterm
+![图2](https://github.com/LibreLex/Blog/blob/master/Linux/pic/2016-11-22-144504_1920x1080_scrot.png)
+![图2](./pic/2016-11-22-144504_1920x1080_scrot.png)
+
+14. 终端：Xterm
 
 简单到极致的终端，干净而高效。
 
-## 15. 火狐插件
+![图1](https://github.com/LibreLex/Blog/blob/master/Linux/pic/2016-11-22-144928_1920x1080_scrot.png)
+![图1](./pic/2016-11-22-144928_1920x1080_scrot.png)
+
+15. 火狐插件
 
 - markdown-viewer
 

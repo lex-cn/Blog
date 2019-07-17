@@ -1,0 +1,69 @@
+﻿# 以后应该不会再用Visual Studio写程序了
+
+在被各种不同的问题坑过之后，我再也不想在类似的问题上纠结了
+
+- 文件的绝对路径？？
+- 文件的编码格式？？？
+- 所用的C语言标准？？？？
+
+我最终的目标还是科学计算，要学习的是不同的算法，而不是各种软件的使用方法。
+
+再也不写界面了，这个既不是我喜欢，也不是我擅长的事情。
+
+我把我的程序语言限定为
+
+1. C/C++ 基础
+2. Python/Bash 胶水语言
+3. R 科学计算与画图
+
+以后专心跨平台的软件了。
+
+2017年12月04日16:42:29  
+
+# attempting to get the view from an adapter in state TextDocDataAvailable
+
+今天在使用Vs进行编程的过程中，Vs提示一个错误
+
+> attempting to get the view from an adapter in state TextDocDataAvailable
+
+当时既不能搜索文件，也不能打开该文件，打开即弹出这个错误，估计是个bug。或者是因
+为我一天没有关闭这个软件？？？
+
+解决办法是一贯的windows套路
+
+> reboot the Visual Studio
+
+It is really shit.
+
+# fatal error C1075: end of file found before the left brace and read and write files not working
+
+此问题一般有两种情况
+
+1. 程序的括号不匹配，缺失相应的括号，比如
+   [csdn](http://blog.csdn.net/wjhuangjin/article/details/4803818)上这位朋友遇
+   到的情况
+2. 文件的编码格式错误，Visual Studio请尽量使用UTF8 with signature，也就是UTF8包
+   含bom的格式
+
+参考链接：[stackoverflow相关资料
+](http://stackoverflow.com/questions/2672495/fatal-error-c1075-end-of-file-found-before-the-left-brace-and-read-and-write-fi)
+
+# Visual Studio 断点无法匹配
+
+1. 修改过后没有重新编译
+2. Visual Studio设置原因
+3. 因为代码中有非ASCII字符等原因。
+
+    1. 在VS中打开该文件，打开另存为（Save as）对话框。
+    2. 点击对话框中“保存（Save）”按钮右边的向下三角形按钮。
+    3. 编码方式（Encoding）选择UTF-8 with signature。
+    4. 行尾（Line Endings）选择Windows（CR LF）。
+
+# Visual Studio中文件编码的选择
+
+对于同一个源文件，有时我们既需要使用Visual Studio进行编译，又需要使用别的编译器
+进行编译，所以鉴于Visual Studio的挑剔选项，我决定对以后的源文件一律采取以下格式
+
+1. 文件以dos格式保存，也就是<CR><LF>表示行尾
+2. 文件编码采用UTF8 with signature，也就是添加了bom的utf8
+
