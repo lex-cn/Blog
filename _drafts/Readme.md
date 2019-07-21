@@ -1,15 +1,62 @@
-# 我的读书笔记
+# Linux操作及问题笔记
 
-曾经看过一句话，让我深有启发。这大概是很多人包括我在内的真实想法，如何解决这个
-问题呢？
+linux下查看进程运行的时间
+```bash
+ps -eo pid,tty,user,comm,lstart,etime | grep init
+```
 
-> 为什么不购买行业领袖花了几年时间写作、整理，并经过专业编辑审稿的书籍来阅读，而
-> 要购买小有成就者仅仅花几个小时整合的碎片信息来学习呢？ 
-> 
-> 消除的不是无知而是焦虑，购买的不是智慧而是信息。 
-> 
-> 对物质的不满，对未来的担忧，对感情的索求，致使我们一直处于极度饥饿的状态，成长
-> 不过是学会让生活现场和这样的饥饿感抗衡，来达到不动声色的焦虑。 
+linux 下取进程占用内存(MEM)最高的前10个进程
+
+# linux 下取进程占用 cpu 最高的前10个进程
+
+```bash
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head
+```
+
+# linux 下取进程占用内存(MEM)最高的前10个进程
+
+```bash
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head
+```
+
+# Transport endpoint is not connected 的解决办法
+
+在使用sshfs挂载一个远程目录时，
+
+```bash
+ls: cannot access 'shfs': Transport endpoint is not connected
+total 135M
+-rw-r--r--  1 lex lex    0 Mar  8 10:35 atex
+drwxr-xr-x 15 lex lex 4.0K May 15 20:44 Documents
+d?????????  ? ?   ?      ?            ? shfs
+-rw-------  1 lex lex  13M May  9 22:58 nohup.out
+drwxr-xr-x  3 lex lex 4.0K Mar  6  2017 R
+drwxr-xr-x  3 lex lex 4.0K Feb 27 19:40 Software
+drwxr-xr-x  5 lex lex 4.0K Apr 10 20:46 Temp
+drwxr-xr-x  3 lex lex 4.0K Apr 30 16:56 tmp
+drwxr-xr-x  6 lex lex 4.0K Mar  6 22:13 toDelete
+```
+
+I get this message when there's been a bad *disconnect* from a fuse fs.
+
+Unmounting and remounting the fs solves it
+
+Code:
+
+```bash
+$ fusermount -u <mountpoint>
+$ sshfs <mountpoint>
+```
 
 
+https://www.linuxquestions.org/questions/slackware-14/transport-endpoint-is-not-connected-filesystem-error-817146/
 
+# VLC is unable to open the MRL
+
+samba 
+
+如果是打开samba共享文件时出现的，主要的解决办法如下
+
+[参考链接1](https://askubuntu.com/questions/618204/cannot-play-files-over-samba-share-on-mate-15-04)
+
+[参考链接2](https://ubuntu-mate.community/t/solved-question-on-network-drives/1210/6)

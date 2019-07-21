@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>离线工作的文件同步方式</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/home/lex/.vim/bundle/vim-pandoc/data/reference.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">离线工作的文件同步方式</h1>
+</div>
+<div id="TOC">
+true
+</div>
+<p>当今社会，网络已经非常普遍，基本上到处都有WiFi，无限流量也不是很贵，然而在日常的工作当中，我们对于离线工作还是有一定的需求。比方说以下场景</p>
+<ol style="list-style-type: decimal">
+<li>我有两台电脑，台式机+笔记本。但上班时间基本上不开笔记本，只用台式机</li>
+<li>下班后直接带笔记本回宿舍，但是宿舍没有网；即使有网，网络情况也很差。小文件还算可以，同步大文件真是让人抓狂，基本上无法使用网络进行同步。</li>
+<li>有时还会在图书馆或别的电脑上进行编辑工作，可能没有网络，或者没有相应的客户端</li>
+<li>我希望在能够随时开展我的编辑工作</li>
+</ol>
+<p>即使有网络，各种网盘服务提供商，做的好的厂家在国内无法访问，容量大的厂家搞限速，不限速厂家的限制流量，要不就是跨平台做的不怎么样。数据上传有审查，数据丢了没赔偿<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，反正大佬们就是这么牛。</p>
+<p>本人就是这么有强迫症，好吧，现在言归正传，在时常没有网络的情况下，如何进行数据同步与备份呢？？以下是本人的方案</p>
+<h2 id="格式化为exfat的u盘">1. 格式化为exfat的U盘</h2>
+<p>现在的存储设备完全是白菜价，本人手上有一个32G的U盘，格式化为exfat格式，作为自己的工作盘，存储那些手头上的工作项目。</p>
+<p>本人的工作项目主要是一些文本编辑工作，比如写文档，代码，看看PDF等。</p>
+<p>为什么要格式化为exFAT格式呢？因为exFAT是最通用的格式类型。简单来说，</p>
+<ul>
+<li>exFAT支持最多的系统，Mac、windows、linux通吃，不用安装任何补丁包就可以。</li>
+<li>exFAT更适合闪存系统，有助于延长Ｕ盘的使用寿命。</li>
+</ul>
+<p>exFAT的缺点主要是为了减少对Ｕ盘的读写，没有采用“日志式”的方式记录磁盘的详细读写操作，也就无法从磁盘恢复已经删除的文件。但是本人觉得及时将文件备份比从磁盘恢复更加靠谱，所以也就可以容忍了。</p>
+<h2 id="rsync">2. rsync</h2>
+<p>rsync命令是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。rsync使用所谓的“增量同步”来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。</p>
+<p>rsync特点</p>
+<ul>
+<li>可以镜像保存整个目录树和文件系统可以保留原有的权限(permission,mode)，</li>
+<li>owner,group,时间(修改时间,modify time)，软硬链接，文件acl,文件属性(attributes)信息等</li>
+<li>传输效率高，使用同步算法，只比较变化的部分，这一点强于cp -r</li>
+<li>支持匿名传输，方便网站镜像；也可以做验证，加强安全</li>
+<li>rsync是个跨平台的软件，在多种系统上均可用</li>
+</ul>
+<p>rsync格式</p>
+<pre><code> rsync [OPTION] … SRC   DEST
+ rsync [OPTION] … SRC   [user@]host:DEST
+ rsync [OPTION] … [user@]host:SRC   DEST
+ rsync [OPTION] … SRC   [user@]host::DEST
+ rsync [OPTION] … [user@]host::SRC   DEST</code></pre>
+<p>rsync常用选项</p>
+<pre><code>-a 包含-rtplgoD
+-r 同步目录时要加上，类似cp时的-r选项
+-v 同步时显示一些信息，让我们知道同步的过程
+-l 保留软连接
+-L 加上该选项后，同步软链接时会把源文件给同步
+-p 保持文件的权限属性
+-o 保持文件的属主
+-g 保持文件的属组
+-D 保持设备文件信息
+-t 保持文件的时间属性
+--delete 删除DEST中SRC没有的文件
+--exclude 过滤指定文件，如--exclude “logs”会把文件名包含logs的文件或者目录过滤掉，不同步
+-P 显示同步过程，比如速率，比-v更加详细
+-u 加上该选项后，如果DEST中的文件比SRC新，则不同步
+-z 传输时压缩</code></pre>
+<p>因此，在Ｕ盘里建立需要同步的一个文件夹（如SRC），假设我们把台式机内的备份位置命名为用户目录下的DEST，那么我们可以使用以下命令让DEST文件夹的内容与SRC中保持一致。</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rsync</span> -rtlgoDz --delete ../SRC ~/DEST</code></pre></div>
+<p>这里，为了文件权限的错乱，不使用-p参数对权限信息进行同步；使用--delete删除一些同步目录里已经删除的文件，这个在结合Git使用时特别有用。
+-z作为传输时的压缩选项，可以酌情添加。</p>
+<p>在该文件夹内建立一个同步的脚本sync.sh，将上述内容写入，每次在需要同步时，直接运行即可。</p>
+<h2 id="本方法的特点">3. 本方法的特点</h2>
+<p>其实这个方法没有同步只有备份，喜欢实时同步的同学可能要失望了。但是这个方案有其优点</p>
+<ol style="list-style-type: decimal">
+<li>不需要网络，不需要等待同步，即使使用usb2.0的Ｕ盘，也比网络更快</li>
+<li>因为不是实时同步，也就避免了错误文件被同步，从而导致远程备份被更改。</li>
+<li>多机备份，这样做数据至少有两份副本，再结合Git，基本上满足了我的备份需求。</li>
+<li>所要编辑的资料随身携带，即使不是自己的电脑，也可以插入Ｕ盘就可以开始工作。</li>
+</ol>
+<p>对于我来说，唯一的缺点就是如果Ｕ盘丢失，资料可能被窃取，目前还没有好的办法。使用某些磁盘加密工具可能有效。</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>https://baijiahao.baidu.com/s?id=1608142183319333964&amp;wfr=spider&amp;for=pc<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+</body>
+</html>
