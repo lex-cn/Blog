@@ -183,8 +183,8 @@ if has('win32')
     set guifont=Consolas:h15
 endif
 if has('unix')
-    "set guifont=DejaVu\ Sans\ Mono\ 14
-    set guifont=Noto\ Mono\ Regular\ 14
+    set guifont=DejaVu\ Sans\ Mono\ 14
+    "set guifont=Noto\ Mono\ Regular\ 14
 endif
 set nobomb
 set nocompatible	    " 避免以前版本的一些bug和局限  
@@ -227,7 +227,7 @@ endif
 set statusline+=\ %=[FORMAT=%{&ff}]
 set statusline+=\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}
 set statusline+=\ [TYPE=%Y]\ [POS=%l,%v][%p%%]
-set statusline+=\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set statusline+=\ %{strftime(\"%Y/%m/%d\ %H:%M\")}
 highlight StatusLine guifg=SlateBlue guibg=Blue ctermfg=Green ctermbg=Blue" 状态行颜色
 highlight StatusLineNC guifg=Gray guibg=Green ctermfg=Gray ctermbg=Blue" 状态行颜色
 set laststatus=2 " //使得状态栏和命令行分开
