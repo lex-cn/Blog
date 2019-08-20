@@ -138,6 +138,9 @@ alias vnc='/opt/VNC &'
 alias zotero='nohup /opt/zotero/zotero >/dev/null 2>&1 &'
 alias bye='sudo shutdown -h now' 
 alias padoff='synclient TouchpadOff=1'
+alias cpr='rsync -rltgoDh --info=progress2'
+alias rm='trash'
+
 
 function git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;

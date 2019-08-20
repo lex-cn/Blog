@@ -56,11 +56,12 @@ for_window [title="qtcreator_process_stub"] floating enable
 #
 for_window [class="netease-cloud-music" instance="netease-cloud-music"] floating enable
 for_window [class="Zotero" instance="Zotero"] floating disable
+for_window [class="mathpix-snipping-tool" instance="Mathpix Snipping Tool"] floating enable
 for_window [class="xpad" instance="xpad"] floating enable
 for_window [class="Arandr" instance="arandr"] floating enable
 for_window [class="R_x11" instance="r_x11"] floating enable
 for_window [class="R_x11" instance="rgl"] floating enable
-for_window [class="Bleachbit" instance="bleachbit"] floating enable
+#for_window [class="Bleachbit" instance="bleachbit"] floating enable
 for_window [class="Remmina" instance="remmina"] floating enable
 for_window [class="Mathpix Snipping Tool" instance="Mathpix Snipping Tool"] floating enable
 #for_window [class="Spacefm" instance="spacefm"] floating enable
