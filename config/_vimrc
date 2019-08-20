@@ -183,8 +183,8 @@ if has('win32')
     set guifont=Consolas:h15
 endif
 if has('unix')
-    "set guifont=DejaVu\ Sans\ Mono\ 14
-    set guifont=Noto\ Mono\ Regular\ 14
+    set guifont=DejaVu\ Sans\ Mono\ 14
+    "set guifont=Noto\ Mono\ Regular\ 14
 endif
 set nobomb
 set nocompatible	    " 避免以前版本的一些bug和局限  
