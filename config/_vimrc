@@ -227,7 +227,7 @@ endif
 set statusline+=\ %=[FORMAT=%{&ff}]
 set statusline+=\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}
 set statusline+=\ [TYPE=%Y]\ [POS=%l,%v][%p%%]
-set statusline+=\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set statusline+=\ %{strftime(\"%Y/%m/%d\ %H:%M\")}
 highlight StatusLine guifg=SlateBlue guibg=Blue ctermfg=Green ctermbg=Blue" 状态行颜色
 highlight StatusLineNC guifg=Gray guibg=Green ctermfg=Gray ctermbg=Blue" 状态行颜色
 set laststatus=2 " //使得状态栏和命令行分开

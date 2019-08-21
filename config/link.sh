@@ -6,5 +6,7 @@ ln -sf $(pwd)/Xresources ~/.Xresources
 rm -rf ~/.i3*
 mkdir ~/.i3/
 ln -sf $(pwd)/config ~/.i3/config
+rm -rf ~/.cache
 ln -sf /dev/shm/ ~/.cache
+rm -rf ~/.adobe
 ln -sf /dev/shm/ ~/.adobe
