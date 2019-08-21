@@ -9,8 +9,8 @@ exec --no-startup-id xrdb -merge .Xresources &
 exec --no-startup-id fcitx &
 #exec --no-startup-id workrave&
 #exec --no-startup-id syncthing&
-#exec --no-startup-id wicd-gtk -t &
-exec --no-startup-id nm-applet &
+exec --no-startup-id wicd-gtk -t &
+#exec --no-startup-id nm-applet &
 exec --no-startup-id synclient TouchpadOff=1 &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
