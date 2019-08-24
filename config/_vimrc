@@ -183,7 +183,7 @@ if has('win32')
     set guifont=Consolas:h15
 endif
 if has('unix')
-    set guifont=DejaVu\ Sans\ Mono\ 14
+    set guifont=DejaVu\ Sans\ Mono\ 12
     "set guifont=Noto\ Mono\ Regular\ 14
 endif
 set nobomb
@@ -213,7 +213,7 @@ set textwidth=79
 set fo+=tMm
 set cc=80
 set shiftwidth=4        "设置缩进的空格数"
-set nowrap                "设置自动断行
+set wrap                "设置自动断行
 set nobackup            "禁止生成备份文件"
 set noswapfile          "禁止生成swap文件"
 set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
@@ -291,9 +291,8 @@ func Set()
     inoremap “ “”<ESC>i
 endfunc
 
-
-"autocmd BufRead      *.md,*.mkd,*.markdown call vimpan#Main()
-"autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#Md2Htm()
+autocmd BufRead      *.md,*.mkd,*.markdown call vimpan#Main()
+autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#AutoGen()
 
 map <F5> :call vimpan#Md2Htm()<cr>
 map <F6> :call vimpan#Md2Doc()<cr>
