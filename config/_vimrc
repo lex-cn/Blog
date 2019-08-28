@@ -292,7 +292,7 @@ func Set()
 endfunc
 
 autocmd BufRead      *.md,*.mkd,*.markdown call vimpan#Main()
-autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#AutoGen()
+"autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#AutoGen()
 
 map <F5> :call vimpan#Md2Htm()<cr>
 map <F6> :call vimpan#Md2Doc()<cr>

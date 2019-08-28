@@ -137,3 +137,8 @@ sudo apt-get install qtdeclarative5-dev
 sudo apt-get install libxml2-dev libxml2
 ```
 
+## error: cannot find -lpng
+
+```bash
+sudo apt-get install libpng-dev
+```
