@@ -173,7 +173,7 @@ setlocal expandtab smarttab shiftwidth=4 softtabstop=4 tabstop=4
 "----------set 系列---------
 set sessionoptions+=unix,slash
 set fileformat=unix
-colorscheme desert
+colorscheme molokai
 set number      	    " 设置行号
 set foldenable
 set fdm=marker         " 设置折叠
@@ -228,8 +228,8 @@ set statusline+=\ %=[FORMAT=%{&ff}]
 set statusline+=\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}
 set statusline+=\ [TYPE=%Y]\ [POS=%l,%v][%p%%]
 set statusline+=\ %{strftime(\"%Y/%m/%d\ %H:%M\")}
-highlight StatusLine guifg=SlateBlue guibg=Blue ctermfg=Green ctermbg=Blue" 状态行颜色
-highlight StatusLineNC guifg=Gray guibg=Green ctermfg=Gray ctermbg=Blue" 状态行颜色
+highlight StatusLine   guifg=SlateBlue guibg=Black ctermfg=Blue ctermbg=Black" 状态行颜色
+highlight StatusLineNC guifg=SlateBlue guibg=Black ctermfg=Blue ctermbg=Black" 状态行颜色
 set laststatus=2 " //使得状态栏和命令行分开
 set ruler " 在编辑过程中，在右下角显示光标位置的状态行
 
