@@ -28,11 +28,8 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5% &
 bindsym Print                 exec --no-startup-id scrot -s /tmp/$(date +%F-%T).png
 bindsym Scroll_Lock           exec --no-startup-id i3lock-fancy
 
-bindsym Mod1+f     exec --no-startup-id firefox&
-bindsym Mod1+e     exec --no-startup-id nautilus&
-bindsym Mod1+w     exec --no-startup-id wicd-gtk&
-bindsym $mod+l     exec --no-startup-id i3lock-fancy&
-bindsym $mod+z     exec --no-startup-id /opt/Zotero/zotero &
+bindsym Mod1+e    exec --no-startup-id thunar &
+bindsym $mod+l    exec --no-startup-id i3lock-fancy&
 
 #bindsym Mod1+<F10> exec --no-startup-id synapse&
 #bindsym $mod+m  exec --no-startup-id icedove &
@@ -99,13 +96,14 @@ bindsym $mod+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id  rofi -show drun -modi drun&
+#bindsym $mod+d exec --no-startup-id  rofi -show drun -modi drun&
+bindsym $mod+d exec --no-startup-id  j4-dmenu-desktop&
 bindsym $mod+Tab exec --no-startup-id  rofi -show window&
 
 # change focus
-#bindsym $mod+h focus left
-#bindsym $mod+j focus down
-#bindsym $mod+k focus up
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 #bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
@@ -160,28 +158,38 @@ bindsym $mod+a focus parent
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace next
 
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace "1            "
+bindsym $mod+2 workspace "2            "
+bindsym $mod+3 workspace "3            "
+bindsym $mod+4 workspace "4            "
+bindsym $mod+5 workspace "5:Firefox    "
+bindsym $mod+6 workspace "6:ReadPapers "
+bindsym $mod+7 workspace "7            "
+bindsym $mod+8 workspace "8            "
+bindsym $mod+9 workspace "9            "
+bindsym $mod+0 workspace "10:VirtualBox"
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace "1            "
+bindsym $mod+Shift+2 move container to workspace "2            "
+bindsym $mod+Shift+3 move container to workspace "3            "
+bindsym $mod+Shift+4 move container to workspace "4            "
+bindsym $mod+Shift+5 move container to workspace "5:Firefox    "
+bindsym $mod+Shift+6 move container to workspace "6:ReadPapers "
+bindsym $mod+Shift+7 move container to workspace "7            "
+bindsym $mod+Shift+8 move container to workspace "8            "
+bindsym $mod+Shift+9 move container to workspace "9            "
+bindsym $mod+Shift+0 move container to workspace "10:VirtualBox"
+
+assign [class="Firefox"]            "5:Firefox    "
+assign [class="Zotero"]             "6:ReadPapers "
+assign [class="Foxit Reader"]       "6:ReadPapers "
+assign [class="VirtualBox Manager"] "10:VirtualBox"
+assign [class="VirtualBox Machine"] "10:VirtualBox"
+
+bindsym Mod1+p workspace "6:ReadPapers "
+bindsym Mod1+f workspace "5:Firefox    "
+bindsym Mod1+v workspace "10:VirtualBox"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -248,7 +256,8 @@ bar {
         workspace_buttons yes
         binding_mode_indicator yes
         separator_symbol "|"
-        # tray_output       none
+        #i3bar_command i3bar --transparency
+        #tray_output       none
 
         font pango:DejaVu Sans Mono, Icons 12
 

@@ -173,7 +173,7 @@ setlocal expandtab smarttab shiftwidth=4 softtabstop=4 tabstop=4
 "----------set 系列---------
 set sessionoptions+=unix,slash
 set fileformat=unix
-colorscheme molokai
+colorscheme desert
 set number      	    " 设置行号
 set foldenable
 set fdm=marker         " 设置折叠
@@ -299,7 +299,7 @@ map <F6> :call vimpan#Md2Doc()<cr>
 map <F8> :call vimpan#PrvHtm()<cr>
 
 
-set makeprg=make\ -C\ ./gcc/\ -f\ makefile
+"set makeprg=make\ -C\ ./gcc/\ -f\ makefile
 "==================================================
 "for cscope
 "=================================================
