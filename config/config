@@ -11,10 +11,11 @@ exec --no-startup-id fcitx &
 #exec --no-startup-id syncthing&
 exec --no-startup-id wicd-gtk -t &
 #exec --no-startup-id nm-applet &
+exec --no-startup-id blueman-applet &
 exec --no-startup-id synclient TouchpadOff=1 &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-exec --no-startup-id feh --bg-scale ~/.desk.jpg &
+exec --no-startup-id feh --no-fehbg --bg-scale ~/.desk.png &
 
 #bindsym XF86AudioMute         exec --no-startup-id amixer set 'Master' 0% &
 #bindsym XF86AudioLowerVolume  exec --no-startup-id amixer set 'Master' 5%- &
@@ -29,7 +30,8 @@ bindsym Print                 exec --no-startup-id scrot -s /tmp/$(date +%F-%T).
 bindsym Scroll_Lock           exec --no-startup-id i3lock-fancy
 
 bindsym Mod1+e    exec --no-startup-id thunar &
-bindsym $mod+l    exec --no-startup-id i3lock-fancy&
+#bindsym $mod+l    exec --no-startup-id i3lock-fancy&
+bindsym $mod+l    exec --no-startup-id i3lock -i ~/.lock.png&
 
 #bindsym Mod1+<F10> exec --no-startup-id synapse&
 #bindsym $mod+m  exec --no-startup-id icedove &
@@ -44,6 +46,7 @@ bindsym $mod+l    exec --no-startup-id i3lock-fancy&
 # floating_minimum_size 1200 x 1000 
 floating_maximum_size 1200 x 768
 for_window [title="qtcreator_process_stub"] floating enable
+for_window [title="MathJax Equation Source - Mozilla Firefox"] floating enable
 #for_window [title="~ - VIFM"] floating enable
 #for_window [class="Gvim" instance="gvim"] floating enable,resize set 866 944
 #for_window [class="UXTerm" instance="xterm"] floating enable
@@ -99,6 +102,7 @@ bindsym $mod+q kill
 #bindsym $mod+d exec --no-startup-id  rofi -show drun -modi drun&
 bindsym $mod+d exec --no-startup-id  j4-dmenu-desktop&
 bindsym $mod+Tab exec --no-startup-id  rofi -show window&
+bindsym $mod+a exec --no-startup-id  flameshot gui&
 
 # change focus
 bindsym $mod+h focus left
@@ -145,7 +149,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 #The orientation for new workspaces can be set by adding default_orientation <horizontal|vertical|auto>
 #default_orientation vertical
@@ -158,38 +162,45 @@ bindsym $mod+a focus parent
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace next
 
-bindsym $mod+1 workspace "1            "
-bindsym $mod+2 workspace "2            "
-bindsym $mod+3 workspace "3            "
-bindsym $mod+4 workspace "4            "
-bindsym $mod+5 workspace "5:Firefox    "
-bindsym $mod+6 workspace "6:ReadPapers "
-bindsym $mod+7 workspace "7            "
-bindsym $mod+8 workspace "8            "
-bindsym $mod+9 workspace "9            "
-bindsym $mod+0 workspace "10:VirtualBox"
+bindsym $mod+1 workspace                         "1:默认空间   "
+bindsym $mod+Shift+1 move container to workspace "1:默认空间   "
+
+bindsym $mod+2 workspace                         "2:文档笔记   "
+bindsym $mod+Shift+2 move container to workspace "2:文档笔记   "
+assign  [class="ReText"]                         "2:文档笔记   "
+assign  [class="Gvim"]                           "2:文档笔记   "
+
+bindsym $mod+3 workspace                         "3:资料阅读   "
+bindsym $mod+Shift+3 move container to workspace "3:资料阅读   "
+assign [class="Zotero"]                          "3:资料阅读   "
+assign [class="Foxit Reader"]                    "3:资料阅读   "
+
+bindsym $mod+4 workspace                         "4:文件管理   "
+bindsym $mod+Shift+4 move container to workspace "4:文件管理   "
+assign [class="Thunar"]                          "4:文件管理   "
+
+bindsym $mod+5 workspace                         "5:网络网页   "
+bindsym $mod+Shift+5 move container to workspace "5:网络网页   "
+assign [class="Firefox"]                         "5:网络网页   "
+assign [class="Filezilla"]                       "5:网络网页   "
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace "1            "
-bindsym $mod+Shift+2 move container to workspace "2            "
-bindsym $mod+Shift+3 move container to workspace "3            "
-bindsym $mod+Shift+4 move container to workspace "4            "
-bindsym $mod+Shift+5 move container to workspace "5:Firefox    "
-bindsym $mod+Shift+6 move container to workspace "6:ReadPapers "
+bindsym $mod+6 workspace                         "6:           "
+bindsym $mod+Shift+6 move container to workspace "6:           "
+
+bindsym $mod+7 workspace                         "7            "
 bindsym $mod+Shift+7 move container to workspace "7            "
+
+bindsym $mod+8 workspace                         "8            "
 bindsym $mod+Shift+8 move container to workspace "8            "
+
+bindsym $mod+9 workspace                         "9            "
 bindsym $mod+Shift+9 move container to workspace "9            "
+
+bindsym $mod+0 workspace                         "10:VirtualBox"
 bindsym $mod+Shift+0 move container to workspace "10:VirtualBox"
-
-assign [class="Firefox"]            "5:Firefox    "
-assign [class="Zotero"]             "6:ReadPapers "
-assign [class="Foxit Reader"]       "6:ReadPapers "
-assign [class="VirtualBox Manager"] "10:VirtualBox"
-assign [class="VirtualBox Machine"] "10:VirtualBox"
-
-bindsym Mod1+p workspace "6:ReadPapers "
-bindsym Mod1+f workspace "5:Firefox    "
-bindsym Mod1+v workspace "10:VirtualBox"
+assign [class="VirtualBox Manager"]              "10:VirtualBox"
+assign [class="VirtualBox Machine"]              "10:VirtualBox"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

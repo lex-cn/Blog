@@ -56,7 +56,6 @@ Plugin 'godlygeek/tabular'
 "快速查找
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'libre-lex/vim-pandoc'
 
 "语法检查 {{{
 Plugin 'vim-syntastic/syntastic'
@@ -180,7 +179,7 @@ set fdm=marker         " 设置折叠
 set foldmarker={{{,}}} " 折叠标志，这个是默认的
 set foldcolumn=2 " 折叠位宽
 if has('win32')
-    set guifont=Consolas:h15
+    set guifont=Consolas:h14
 endif
 if has('unix')
     set guifont=DejaVu\ Sans\ Mono\ 12
@@ -243,7 +242,7 @@ endif
 set report=0 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set shortmess=atI                                     "去掉欢迎界面
 " " 禁止显示菜单和工具条
-"set guioptions-=m  "隐藏菜单栏"
+set guioptions-=m  "隐藏菜单栏"
 set guioptions-=T   "隐藏工具栏"
 set guioptions-=r
 set guioptions-=L
@@ -291,12 +290,119 @@ func Set()
     inoremap “ “”<ESC>i
 endfunc
 
-autocmd BufRead      *.md,*.mkd,*.markdown call vimpan#Main()
+"+++++++++++++++++++++++++++ Python ++++++++++++++++++++++++++++++++++++++++++
+
+autocmd BufRead      *.py2,*.py3 set filetype=python
+
+""""""""""""""""""""""""For Markdown"""""""""""""""""""""""""""""""""""{{{
+func! Handler(channel, msg)
+    echo a:msg 
+endfunc
+
+func!  MdIab()
+
+    iab iday <c-r>=strftime("20%y年%m月%d日 %H:%M:%S")<cr> 
+    iab ss <!--{{{-->
+    iab ee <!--}}}-->
+
+    iab sum <c-r>=strftime("\\sum^{}_{}")<cr><ESC>3h
+    iab inf <c-r>=strftime("\\infty^{}_{}")<cr><ESC>3h
+    iab fr <c-r>=strftime("\\frac{}{}")<cr><ESC>2h
+    iab ff <c-r>=strftime("\$f(x) = a_0 + 
+                \\\sum^{\\infty}_{k=1} a_k \\cos(kx) + b_k \\sin(kx)\$"
+                \)<cr><ESC>
+endfunc
+
+
+func! Md2Doc()
+    let cmd="pandoc -s --mathjax=file:///usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML --wrap=preserve --columns=80 --toc "
+    let cmd.="-f markdown+east_asian_line_breaks+multiline_tables "
+    if filereadable("reference.docx")
+        let cmd.="--reference-doc=reference.docx "
+    endif
+
+    if filereadable(expand("%:r").".bib")
+        let cmd.="--filter pandoc-citeproc --bibliography=".expand("%:r").".bib "
+    elseif filereadable("ref.bib")
+        let cmd.="--filter pandoc-citeproc --bibliography=ref.bib "
+    endif
+   
+    let cmd.="-t docx ".expand("%"). " -o ".expand("%:r").".docx"
+
+    "echom cmd
+    return job_start(cmd, {'callback': 'Handler'})
+    "return job_start(cmd)
+endfunc 
+
+func! Md2Htm()
+    let cmd="pandoc -s --mathjax=file:///usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML --wrap=preserve --columns=80 --toc "
+    let cmd.="-f markdown+east_asian_line_breaks+multiline_tables "
+    if filereadable(expand("%:r").".css")
+        let cmd.="--css=".expand("%:r").".css "
+    elseif filereadable("ref.css")
+        let cmd.="--css=ref.css "
+    endif
+
+    if filereadable(expand("%:r").".bib")
+        let cmd.="--filter pandoc-citeproc --bibliography=".expand("%:r").".bib "
+    elseif filereadable("ref.bib")
+        let cmd.="--filter pandoc-citeproc --bibliography=ref.bib "
+    endif
+   
+    let cmd.="-t html ".expand("%"). " -o ". expand("%:r").".html"
+
+    "echom cmd
+    return job_start(cmd, {'callback': 'Handler'})
+    "return job_start(cmd)
+endfunc 
+
+func! PrvHtm()
+    " TODO 
+    if has('win32')
+        let cmd=""
+        let cmd.=expand("%:r").".html"
+    elseif has('unix')
+        let cmd ="firefox  --new-window "
+        let cmd.=expand("%:r").".html"
+    elseif has('macos')
+        
+    endif
+
+    echom cmd
+
+    return job_start(cmd, {'callback': 'Handler'})
+endfunc
+
+"autocmd BufWritePost * call system("ctags -R") 
+
+function! AutoGen()
+    call Md2Doc()
+    call Md2Htm()
+endfunc
+
+func! Main() abort
+
+    call MdIab()
+
+    let g:tagbar_type_markdown = { 
+            \ 'ctagstype' : 'markdown',
+            \ 'deffile' :'markdown.ctags',
+            \ 'kinds' : [
+            \ 'h:headings',
+            \ ],
+            \ 'sort' : 0
+            \ }
+
+endfunc
+
+autocmd BufRead      *.md,*.mkd,*.markdown call Main()
 "autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#AutoGen()
 
-map <F5> :call vimpan#Md2Htm()<cr>
-map <F6> :call vimpan#Md2Doc()<cr>
-map <F8> :call vimpan#PrvHtm()<cr>
+map <F5> :call Md2Htm()<cr>
+map <F6> :call Md2Doc()<cr>
+map <F8> :call PrvHtm()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 
 "set makeprg=make\ -C\ ./gcc/\ -f\ makefile
