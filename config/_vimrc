@@ -54,7 +54,8 @@ let g:vim_markdown_folding_disabled = 1
 Plugin 'godlygeek/tabular'
 
 "快速查找
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'tpope/vim-fugitive'
 
 "语法检查 {{{
