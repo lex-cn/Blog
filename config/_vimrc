@@ -42,6 +42,8 @@ let NERDTreeWinSize=25
 
 "Plugin 'vim-scripts/Vim-R-plugin'
 
+Plugin 'vim-voom/VOoM'
+
 Plugin 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
@@ -314,7 +316,6 @@ func!  MdIab()
                 \)<cr><ESC>
 endfunc
 
-
 func! Md2Doc()
     let cmd="pandoc -s --mathjax=file:///usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML --wrap=preserve --columns=80 --toc "
     let cmd.="-f markdown+east_asian_line_breaks+multiline_tables "
@@ -363,7 +364,7 @@ func! PrvHtm()
         let cmd=""
         let cmd.=expand("%:r").".html"
     elseif has('unix')
-        let cmd ="firefox  --new-window "
+        let cmd ="firefox  "
         let cmd.=expand("%:r").".html"
     elseif has('macos')
         
@@ -377,13 +378,20 @@ endfunc
 "autocmd BufWritePost * call system("ctags -R") 
 
 function! AutoGen()
-    call Md2Doc()
-    call Md2Htm()
+        call Md2Doc()
+        call Md2Htm()
 endfunc
 
 func! Main() abort
 
     call MdIab()
+
+    map <F3> :Voom pandoc<cr>
+    map <F5> :call Md2Htm()<cr>
+    map <F6> :call Md2Doc()<cr>
+    map <F8> :call PrvHtm()<cr>
+
+
 
     let g:tagbar_type_markdown = { 
             \ 'ctagstype' : 'markdown',
@@ -397,12 +405,7 @@ func! Main() abort
 endfunc
 
 autocmd BufRead      *.md,*.mkd,*.markdown call Main()
-"autocmd BufWritePost *.md,*.mkd,*.markdown call vimpan#AutoGen()
-
-map <F5> :call Md2Htm()<cr>
-map <F6> :call Md2Doc()<cr>
-map <F8> :call PrvHtm()<cr>
-
+autocmd BufWritePost *.md,*.mkd,*.markdown call AutoGen()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 
