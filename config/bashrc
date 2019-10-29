@@ -140,7 +140,7 @@ alias bye='sudo shutdown -h now'
 alias padoff='synclient TouchpadOff=1'
 alias cpr='rsync -rltgoDh --info=progress2'
 alias rm='trash'
-alias grepc='grep -Rn --color'
+#alias grepc='grep -Rn --color'
 cd() { builtin cd "$@" && ls -l; }
 
 
