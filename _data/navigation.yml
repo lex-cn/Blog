@@ -34,7 +34,15 @@ header:
       # @end locale config
     url: /math.html
 
-
+  - titles:
+      # @start locale config
+      en      : &EN       Soft
+      zh-Hans : &ZH_HANS  软件
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      # @end locale config
+    url: /soft.html
 
   - titles:
       # @start locale config
