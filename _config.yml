@@ -241,6 +241,11 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+  - jekyll-relative-links
+
+relative_links:
+    enabled:     true
+    collections: false
 
 collections:
   read:
