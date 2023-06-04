@@ -208,6 +208,7 @@ exclude:
   - /test
   - /vendor
 
+
 defaults:
   - scope:
       path: ""
@@ -231,9 +232,6 @@ defaults:
       type: math
     values:
       layout: page
-  - scope:
-      path: ""
-      type: soft
 
 
 
@@ -251,4 +249,7 @@ collections:
     output: true
   soft:
     output: true
+  projs:
+    output: true
+
   
