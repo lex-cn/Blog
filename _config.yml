@@ -231,6 +231,9 @@ defaults:
       type: math
     values:
       layout: page
+  - scope:
+      path: ""
+      type: soft
 
 
 
@@ -245,5 +248,7 @@ collections:
   read:
     output: true
   math:
+    output: true
+  soft:
     output: true
   

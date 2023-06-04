@@ -62,6 +62,8 @@ set guioptions-=L
 set nospell
 
 map <F4> :set wrap!<CR>
+noremap cf :e <cfile><cr>
+noremap df :silent call system("rm -f ".expand("<cfile>"))<cr>
 
 set clipboard=unnamed "共享剪贴板
 vmap cc :w !xsel -i -b<CR><CR> " Copy to X CLIPBOARD

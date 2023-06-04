@@ -26,8 +26,11 @@ gits=[
 "git config --global core.editor vim                 ;"]
 
 flpk= "\
-        flatpak remote-add --if-not-exists flathub https://mirrors.sjtu.edu.cn/flathub;\
-        flatpak install org.mozilla.firefox org.zotero.Zotero com.zettlr.Zettlr"
+        flatpak remote-add --if-not-exists flathub https://mirrors.sjtu.edu.cn/flathub.flatpakrepo;\
+        flatpak install org.mozilla.firefox org.zotero.Zotero com.zettlr.Zettlr \
+        com.github.johnfactotum.Foliate  com.github.tchx84.Flatseal com.visualstudio.code \
+        nz.mega.MEGAsync com.wps.Office net.cozic.joplin_desktop io.github.Fndroid.clash_for_windows \
+        "
 
 guis="\
 sudo apt-get install i3-wm i3lock-fancy redshift-gtk pcmanfm \
@@ -49,7 +52,7 @@ pips="\
 pip3 config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/ ;\n\
 pip3 install -U pip ;\n\
 pip3 install -U numpy matplotlib pandas ipython scipy tk cartopy pygments;\n\
-pip3 install -U keras tensorflow-gpu pydot sklearn pyforest geopandas memory_profiler;\n\
+pip3 install -U keras tensorflow-gpu pydot sklearn scikit-learn pyforest geopandas memory_profiler;\n\
 "
 
 def setConfig():
