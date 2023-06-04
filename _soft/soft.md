@@ -12,6 +12,6 @@ layout    : article
 
 ```mermaid 
 graph TD
-    SOFT -->  git([GIT](002-git.md))
-
+    SOFT -->  git(GIT)
+    click git "./002-git.html"
 ```
