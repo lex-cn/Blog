@@ -53,8 +53,8 @@ for_window [title="MathJax Equation Source - Mozilla Firefox"] floating enable
 #for_window [class="Zathura" instance="zathura"] floating enable, resize set 1200 1000
 #for_window [class="feh" instance="feh"] floating enable
 #
-for_window [class="netease-cloud-music" instance="netease-cloud-music"] floating enable
-for_window [class="Zotero" instance="Zotero"] floating disable
+#for_window [class="netease-cloud-music" instance="netease-cloud-music"] floating enable
+#for_window [class="Zotero" instance="Zotero"] floating disable
 for_window [class="mathpix-snipping-tool" instance="Mathpix Snipping Tool"] floating enable
 for_window [class="xpad" instance="xpad"] floating enable
 for_window [class="matplotlib" instance="matplotlib"] floating enable, resize set 600 600

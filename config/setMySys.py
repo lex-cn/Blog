@@ -26,10 +26,11 @@ gits=[
 "git config --global core.editor vim                 ;"]
 
 flpk= "\
-        flatpak remote-add --if-not-exists flathub https://mirrors.sjtu.edu.cn/flathub;\
-        flatpak install org.mozilla.firefox org.zotero.Zotero com.zettlr.Zettlr"
-
-#https://codeload.github.com/BannedPatriot/ttf-wps-fonts/zip/refs/heads/master
+        flatpak remote-add --if-not-exists flathub https://mirrors.sjtu.edu.cn/flathub.flatpakrepo;\
+        flatpak install org.mozilla.firefox org.zotero.Zotero com.zettlr.Zettlr \
+        com.github.johnfactotum.Foliate  com.github.tchx84.Flatseal com.visualstudio.code \
+        nz.mega.MEGAsync com.wps.Office net.cozic.joplin_desktop io.github.Fndroid.clash_for_windows \
+        "
 
 guis="\
 sudo apt-get install i3-wm i3lock-fancy redshift-gtk pcmanfm \

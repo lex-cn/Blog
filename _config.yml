@@ -246,4 +246,6 @@ collections:
     output: true
   math:
     output: true
+  soft:
+    output: true
   
