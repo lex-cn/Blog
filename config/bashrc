@@ -190,12 +190,15 @@ alias ftpBkg="lftp -u anonymous,passwd -e \"set ftp:ssl-allow yes\"   igs-ftp.bk
 alias ftpAus="lftp -u anonymous,passwd -e \"set ftp:ssl-allow yes\"   ftp.ga.gov.au                      "
 alias ftpNas="lftp -u anonymous,passwd -e \"set ftp:ssl-force yes\"   gdc.cddis.eosdis.nasa.gov          "
 
-#export PYENV_ROOT="$HOME/.pyenv"                                                 
-#export PATH="$PYENV_ROOT/bin:$PATH"                                                                                                                                                            
-#eval "$(pyenv init --path)"                                                         
-#eval "$(pyenv virtualenv-init -)"                                                   
-#eval "$(pyenv init -)" 
+export PYENV_ROOT="$HOME/.pyenv"                                                 
+export PATH="$PYENV_ROOT/bin:$PATH"                                                                                                                                                            
+eval "$(pyenv init --path)"                                                         
+eval "$(pyenv virtualenv-init -)"                                                   
+eval "$(pyenv init -)" 
 
-CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
+#CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/3.10.12/envs/py310/lib/python3.10/site-packages/nvidia/cudnn/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/3.10.12/envs/py310/lib/python3.10/site-packages/tensorrt_libs/
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
+

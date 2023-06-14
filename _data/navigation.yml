@@ -46,6 +46,18 @@ header:
 
   - titles:
       # @start locale config
+      en      : &EN       Mach
+      zh-Hans : &ZH_HANS  机器学习
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      # @end locale config
+    url: /projs/mach.html
+
+
+
+  - titles:
+      # @start locale config
       en      : &EN       About
       en-GB   : *EN
       en-US   : *EN

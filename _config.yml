@@ -256,5 +256,7 @@ collections:
     output: true
   projs:
     output: true
+  mach:  # 机器学习
+    output: true
 
   
