@@ -208,6 +208,7 @@ exclude:
   - /test
   - /vendor
 
+
 defaults:
   - scope:
       path: ""
@@ -240,10 +241,22 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+  - jekyll-relative-links
+
+relative_links:
+    enabled:     true
+    collections: false
 
 collections:
   read:
     output: true
   math:
     output: true
+  soft:
+    output: true
+  projs:
+    output: true
+  mach:  # 机器学习
+    output: true
+
   

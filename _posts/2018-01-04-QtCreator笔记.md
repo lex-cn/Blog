@@ -1,5 +1,4 @@
 ---
-layout : post
 title  : Qt笔记
 date   : 2018-01-04
 tags   : Qt

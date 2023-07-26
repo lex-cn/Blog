@@ -78,6 +78,7 @@ if has("autocmd")
     au BufRead      *.sh        set filetype=bash
     au BufRead      *.snippets  set filetype=snippets
     "au InsertLeave * silent! w  " 放弃了，太慢了
+    nnoremap gO :!open <cfile><CR>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,6 +124,7 @@ let NERDTreeDirArrows=0       " 目录箭头 1 显示箭头  0传统+-|号
 let NERDTreeIgnore=['\.mod$','\.html$','\tags$','\.toc$','\.aux$','\.pdf$','\.out$','\.log$']
 let NERDTree_Exit_OnlyWindow=1
 let NERDTreeWinSize=25
+"au VimEnter *  NERDTree
 
 Plug 'godlygeek/tabular'  
 Plug 'vim-pandoc/vim-pandoc'

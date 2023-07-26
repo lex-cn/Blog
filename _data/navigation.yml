@@ -11,7 +11,7 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /archive.html
+    url: /projs/archive.html
 
   - titles:
       # @start locale config
@@ -21,7 +21,7 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /read.html
+    url: /projs/read.html
 
 
   - titles:
@@ -32,7 +32,27 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /math.html
+    url: /projs/math.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Soft
+      zh-Hans : &ZH_HANS  软件
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      # @end locale config
+    url: /projs/soft.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Mach
+      zh-Hans : &ZH_HANS  机器学习
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      # @end locale config
+    url: /projs/mach.html
 
 
 
@@ -48,4 +68,4 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /about.html
+    url: /projs/about.html
