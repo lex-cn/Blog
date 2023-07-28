@@ -167,22 +167,17 @@ bindsym $mod+Shift+1 move container to workspace "1:默认"
 
 bindsym $mod+2 workspace                         "2:文档"
 bindsym $mod+Shift+2 move container to workspace "2:文档"
-assign  [class="ReText"]                         "2:文档"
-assign  [class="Gvim"]                           "2:文档"
+#assign  [class="ReText"]                         "2:文档"
+#assign  [class="Gvim"]                           "2:文档"
 
 bindsym $mod+3 workspace                         "3:资料"
 bindsym $mod+Shift+3 move container to workspace "3:资料"
-assign [class="Zotero"]                          "3:资料"
-assign [class="Foxit Reader"]                    "3:资料"
 
 bindsym $mod+4 workspace                         "4:文件"
 bindsym $mod+Shift+4 move container to workspace "4:文件"
-#assign [class="Thunar"]                          "4:文件"
 
 bindsym $mod+5 workspace                         "5:网络"
 bindsym $mod+Shift+5 move container to workspace "5:网络"
-#assign [class="firefox"]                         "5:网络"
-#assign [class="Filezilla"]                       "5:网络"
 
 # move focused container to workspace
 bindsym $mod+6 workspace                         "6:    "
