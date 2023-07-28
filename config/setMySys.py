@@ -43,11 +43,11 @@ sudo apt-get install i3-wm i3lock-fancy redshift-gtk pcmanfm \
 clis="\
 sudo apt-get install vim git git-lfs gcc build-essential gfortran gdb python3 \
     bash-completion python3-pip pandoc pandoc-citeproc tmux wget axel \
-     tig graphviz rsync doxygen libgsl-dev libblas-dev liblapack-dev xcompmgr \
-    htop libgeos++-dev proj-bin  libproj-dev libgeos.dev global cscope dos2unix trash-cli\
-    upower pciutils sshfs tig  universal-ctags unzip transmission-daemon transmission-cli\
-    lftp"
+     tig graphviz rsync doxygen libgsl-dev libblas-dev liblapack-dev \
+    htop libgeos++-dev proj-bin  libproj-dev libgeos.dev global cscope dos2unix \
+    upower pciutils sshfs tig  universal-ctags unzip lftp"
 
+#transmission-daemon transmission-cli trash-cli
 
 pips="\
 #pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/ ;\n\

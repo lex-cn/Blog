@@ -26,3 +26,8 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[http]
+	postBuffer = 1048576000
+	sslVerify = false
+[https]
+	postBuffer = 1048576000

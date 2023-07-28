@@ -202,3 +202,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/3.10.12/envs/py310
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/3.10.12/envs/py310/lib/python3.10/site-packages/tensorrt_libs/
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
 
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv init -)"
