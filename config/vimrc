@@ -61,6 +61,9 @@ set guioptions-=L
 "setlocal spell spelllang=en_us,de_de,cjk
 set nospell
 
+set list
+set listchars=tab:>-,trail:-
+
 map <F4> :set wrap!<CR>
 noremap cf :e <cfile><cr>
 noremap df :silent call system("rm -f ".expand("<cfile>"))<cr>
@@ -77,6 +80,7 @@ if has("autocmd")
     au BufRead      *.py2,*.py3 set filetype=python
     au BufRead      *.sh        set filetype=bash
     au BufRead      *.snippets  set filetype=snippets
+    au BufWritePre  *.c,*.py,*.sh   :%s/\s\+$//e 
     "au InsertLeave * silent! w  " 放弃了，太慢了
     nnoremap gO :!open <cfile><CR>
 endif
@@ -270,6 +274,7 @@ let g:gutentags_plus_switch = 1 "Change focus to quickfix window after search (o
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_trace = 0 "调试程序
 
+
 ""cscope
 if has("cscope")
     if executable('gtags-cscope') && executable('gtags')
@@ -375,23 +380,42 @@ let g:Lf_CursorBlink =1
 
 set completeopt=menu
 
-Plug 'dense-analysis/ale'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_set_loclist = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
-let g:ale_lint_on_text_changed='never' "文件内容发生变化时不检查
-let g:ale_lint_on_enter = 0  "打开文件时不检查
-
-"使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
+"Plug 'dense-analysis/ale'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_set_loclist = 0
+"let g:ale_open_list = 0
+"let g:ale_keep_list_window_open = 0
+"let g:ale_lint_on_text_changed='never' "文件内容发生变化时不检查
+"let g:ale_lint_on_enter = 0  "打开文件时不检查
+"
+""使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
 "let g:ale_linters = {
 "\   'c++': ['clang'],
 "\   'c': ['clang'],
-"\   'python': ['pyflakes'],
+"#\   'python': ['pylint'],
 "\}
 "
 Plug 'morhetz/gruvbox'
 
+"Plug 'ycm-core/YouCompleteMe'
+"" YouCompleteMe
+"set runtimepath+=~/.vim/plugged/YouCompleteMe
+"let g:ycm_collect_identifiers_from_tags_files = 1           " 开启 YCM 基于标签引擎
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释与字符串中的内容也用于补全
+"let g:syntastic_ignore_files=[".*\.py$"]
+"let g:ycm_seed_identifiers_with_syntax = 1                  " 语法关键字补全
+"let g:ycm_complete_in_comments = 1
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']  " 映射按键, 没有这个会拦截掉tab, 导致其他插件的tab不能用.
+"let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+"let g:ycm_complete_in_comments = 1                          " 在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1                           " 在字符串输入中也能补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串中的文字也会被收入补全
+"let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_show_diagnostics_ui = 0                           " 禁用语法检查
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>" |            " 回车即选中当前项
+"nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>|     " 跳转到定义处
+"let g:ycm_min_num_of_chars_for_completion=2                 " 从第2个键入字符就开始罗列匹配项
 
 call plug#end()            " required
 colorscheme desert
