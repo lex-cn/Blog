@@ -115,8 +115,6 @@ function say {
     }
 alias say='say $1'
 
-PATH=$PATH:/opt/bnc/
-
 #[ -n "$XTERM_VERSION" ] && transset --id "$WINDOWID" 0.7 >/dev/null
 
 alias   q="exit"
@@ -151,32 +149,15 @@ alias dos2unixall="find . -type f -exec dos2unix {} \;"
 alias unix2dosall="find . -type f -exec unix2dos {} \;"
 #alias ctags='~/Projects/bins/bin/universal-ctags'
 
-
 #cd() { builtin cd "$@" && ls -ltrha; }
 alias du='du -h --max-depth=1'
 
 # Install Ruby Gems to ~/gems' >> ~/.bashrc
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
 export HISTCONTROL=erasedups
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-
-function git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    echo "["${ref#refs/heads/}"]";
-}
-
-PS1=""
-PS1+="\[\033[1;32m\]${debian_chroot:+($debian_chroot)}\u@\h:\w"
-PS1+="\[\033[1;36m\]\$(git_branch)"
-#PS1+="\[\033[1;36m\]\H"
-PS1+="\[\033[1;32m\]$ \[\e[0m\]"
-
-PATH=$PATH:/opt/bin/:~/.local/bin/:/usr/local/lib
-#set -o vi
-#. /usr/share/autojump/autojump.sh
 
 # alias for ftp
 alias ftpEpn="lftp -u anonymous,passwd -e \"set ftp:ssl-allow yes\"   ftp.epncb.oma.be:/pub/data/format/ "
@@ -189,13 +170,42 @@ alias ftpBkg="lftp -u anonymous,passwd -e \"set ftp:ssl-allow yes\"   igs-ftp.bk
 alias ftpAus="lftp -u anonymous,passwd -e \"set ftp:ssl-allow yes\"   ftp.ga.gov.au                      "
 alias ftpNas="lftp -u anonymous,passwd -e \"set ftp:ssl-force yes\"   gdc.cddis.eosdis.nasa.gov          "
 
+PS1=""
+PS1+="\[\033[1;32m\]${debian_chroot:+($debian_chroot)}\u@\h:"
+
+PS1+="\[\033[1;33m\][\[\e[0m\]"
+PS1+="\[\033[1;36m\]\w\[\e[0m\]"
+PS1+="\[\033[1;33m\]]\[\e[0m\]"
+
+PATH=$PATH:/opt/bin/:~/.local/bin/:/usr/local/lib
+
+function git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}")";
+}
+
+if command -v git 1>/dev/null 2>&1; then
+    PS1+="\[\033[1;33m\]\$(git_branch)\[\e[0m\]"
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT='1'
+
+function pyenv_name {
+    ref=$(pyenv version-name) || return;
+    echo "("${ref}")";
+}
+
 if command -v pyenv 1>/dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv virtualenv-init -)"
     eval "$(pyenv init -)" 
+    PS1+="\[\033[1;33m\]$(pyenv_name)\[\e[0m\]"
 fi
+
+PS1+="\[\033[1;32m\]$:\[\e[0m\]"
+
 
 #CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/3.10.12/envs/py310/lib/python3.10/site-packages/nvidia/cudnn/lib/
