@@ -83,6 +83,10 @@ if has("autocmd")
     au BufWritePre  *.c,*.py,*.sh   :%s/\s\+$//e 
     "au InsertLeave * silent! w  " 放弃了，太慢了
     nnoremap gO :!open <cfile><CR>
+    " Automatically save the session when leaving Vim
+    "autocmd VimLeave * mksession
+    " Automatically load the session when entering vim
+    "autocmd VimEnter * source ~/.session.vim
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -416,8 +420,21 @@ Plug 'morhetz/gruvbox'
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>" |            " 回车即选中当前项
 "nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>|     " 跳转到定义处
 "let g:ycm_min_num_of_chars_for_completion=2                 " 从第2个键入字符就开始罗列匹配项
+""
+"set pyxversion=3
+"" Python3的可执行文件位置
+"let g:python3_host_prog = "/home/lex/.pyenv/shims/python3"
+"
+"if has('nvim')
+"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"    Plug 'Shougo/deoplete.nvim'
+"    Plug 'roxma/nvim-yarp'
+"    Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
 
 call plug#end()            " required
-colorscheme desert
+colorscheme gruvbox
 set bg=dark
 

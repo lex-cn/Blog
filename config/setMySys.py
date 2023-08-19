@@ -23,7 +23,7 @@ gits=[
 "git config --global difftool.prompt false           ;",
 "git config --global http.sslVerify false            ;",
 "git config --global http.postBuffer 1048576000      ;",
-"git config --global user.email \"lipengbo@msn.com\" ;", 
+"git config --global user.email \"lipengbo@msn.com\" ;",
 "git config --global user.name  \"lipengbo\"         ;",
 "git config --global core.editor vim                 ;"]
 
@@ -45,7 +45,9 @@ sudo apt-get install vim git git-lfs gcc build-essential gfortran gdb python3 \
     bash-completion python3-pip pandoc pandoc-citeproc tmux wget axel \
      tig graphviz rsync doxygen libgsl-dev libblas-dev liblapack-dev \
     htop libgeos++-dev proj-bin  libproj-dev libgeos.dev global cscope dos2unix \
-    upower pciutils sshfs tig  universal-ctags unzip lftp"
+    upower pciutils sshfs tig  universal-ctags unzip lftp \
+    atool highlight w3m mediainfo catdoc docx2txt xlsx2csv
+    "
 
 #transmission-daemon transmission-cli trash-cli
 
@@ -67,7 +69,7 @@ def setConfig():
     os.system(exSet)
 
     pwd=os.getcwd()
-    lnlist=["bashrc","i3/config", "ctags.conf", "gtags.conf", "i3blocks.conf", "tmux.conf", 
+    lnlist=["bashrc","i3/config", "ctags.conf", "gtags.conf", "i3blocks.conf", "tmux.conf",
         "vimrc", "Xresources", "snippets","gitconfig"]
 
 
@@ -84,9 +86,9 @@ def setConfig():
 
 def printhelp():
     print("setMySys help \n",
-    "-soft : set software mirros \n",  
+    "-soft : set software mirros \n",
     "-gits : git settings  \n",
-    "-guis : install GUI softwares \n", 
+    "-guis : install GUI softwares \n",
     "-clis : install CLI softwares  \n",
     "-pips : set pip and install Python packages \n",
     "-link : link dot file into configs \n",
@@ -99,25 +101,25 @@ if npars <=1:
     printhelp()
     sys.exit()
 
-for idx in range(1, len(sys.argv)): 
-    if   sys.argv[idx] == "-soft": 
+for idx in range(1, len(sys.argv)):
+    if   sys.argv[idx] == "-soft":
         print("soft")
         os.system(soft)
-    elif sys.argv[idx] == "-gits": 
+    elif sys.argv[idx] == "-gits":
         print("gits")
         for ts in gits:
             print(ts)
             os.system(ts)
-    elif sys.argv[idx] == "-guis": 
+    elif sys.argv[idx] == "-guis":
         print("guis")
         os.system(guis)
-    elif sys.argv[idx] == "-clis": 
+    elif sys.argv[idx] == "-clis":
         print("clis")
         os.system(clis)
-    elif sys.argv[idx] == "-pips": 
+    elif sys.argv[idx] == "-pips":
         print("pips")
         os.system(pips)
-    elif sys.argv[idx] == "-link": 
+    elif sys.argv[idx] == "-link":
         setConfig()
         print("link")
 

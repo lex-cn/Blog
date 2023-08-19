@@ -17,8 +17,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000000
+HISTFILESIZE=2000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -176,15 +176,6 @@ PS1+="\[\033[1;32m\][${debian_chroot:+($debian_chroot)}\u@\h]\[\e[0m\]"
 
 PATH=$PATH:/opt/bin/:~/.local/bin/:/usr/local/lib
 
-function git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    echo "("${ref#refs/heads/}")";
-}
-
-if command -v git 1>/dev/null 2>&1; then
-    PS1+="\[\033[1;33m\]\$(git_branch)\[\e[0m\]"
-fi
-
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT='1'
@@ -202,7 +193,17 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 PS1+="\[\033[1;35m\][\w]\[\e[0m\]"
-PS1+="\[\033[1;32m\]$:\[\e[0m\]"
+
+function git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}")";
+}
+
+if command -v git 1>/dev/null 2>&1; then
+    PS1+="\[\033[1;33m\]\$(git_branch)\[\e[0m\]"
+fi
+
+PS1+="\[\033[1;32m\]$: \[\e[0m\]"
 
 
 #CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
