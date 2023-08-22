@@ -16,6 +16,7 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+export HISTIGNORE=”history:cd:exit:ls:pwd:man”
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000000
 HISTFILESIZE=2000000
@@ -132,8 +133,6 @@ alias  keyon="xinput set-prop 14 \"Device Enabled\" 1"
 alias keyoff="xinput set-prop 14 \"Device Enabled\" 0"
 alias  padon="xinput set-prop 15 \"Device Enabled\" 1"
 alias padoff="xinput set-prop 15 \"Device Enabled\" 0"
-alias vnc='/opt/VNC &'
-alias zotero='nohup /opt/zotero/zotero >/dev/null 2>&1 &'
 alias padoff='synclient TouchpadOff=1'
 alias cpr='rsync -rltgoDh --info=progress2'
 alias rsmv='rsync -a  --info=progress2 --remove-source-files'
@@ -147,7 +146,8 @@ alias md2a5report=" pandoc -s --pdf-engine=xelatex --highlight-style=tango -F pa
 alias pip3up="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
 alias dos2unixall="find . -type f -exec dos2unix {} \;"
 alias unix2dosall="find . -type f -exec unix2dos {} \;"
-#alias ctags='~/Projects/bins/bin/universal-ctags'
+
+alias setMySys='python3 ~/blog/config/setMySys.py'
 
 #cd() { builtin cd "$@" && ls -ltrha; }
 alias du='du -h --max-depth=1'

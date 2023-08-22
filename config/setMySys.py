@@ -42,12 +42,13 @@ sudo apt-get install i3-wm i3lock-fancy redshift-gtk pcmanfm \
 
 clis="\
 sudo apt-get install vim git git-lfs gcc build-essential gfortran gdb python3 \
-    bash-completion python3-pip pandoc pandoc-citeproc tmux wget axel \
-     tig graphviz rsync doxygen libgsl-dev libblas-dev liblapack-dev \
+    bash-completion python3-pip pandoc tmux wget axel \
+    tig graphviz rsync doxygen libgsl-dev libblas-dev liblapack-dev \
     htop libgeos++-dev proj-bin  libproj-dev libgeos.dev global cscope dos2unix \
-    upower pciutils sshfs tig  universal-ctags unzip lftp \
-    atool highlight w3m mediainfo catdoc docx2txt xlsx2csv
-    "
+    upower pciutils sshfs universal-ctags unzip lftp \
+    atool highlight w3m mediainfo catdoc docx2txt xlsx2csv \
+    ncdu tldr fd-find exa icdiff silversearcher-ag fzf ripgrep parallel newsboat \
+    taskwarrior rclone fdupes "
 
 #transmission-daemon transmission-cli trash-cli
 
