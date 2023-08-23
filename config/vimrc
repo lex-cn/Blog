@@ -48,8 +48,23 @@ set softtabstop=4
 set cc=81
 set nowrap                "设置自动断行
 set shiftwidth=4        "设置缩进的空格数"
-set nobackup            "禁止生成备份文件"
-set noswapfile          "禁止生成swap文件"
+
+set undofile  "使得即使在文件关闭后也可以维护撤消历史记录
+set backup            "允许生成备份文件"
+if !isdirectory(expand("~/.vim/backupfiles"))
+    call mkdir($HOME . "/.vim/backupfiles", "p")
+endif
+set backupdir=~/.vim/backupfiles
+
+set swapfile          "允许生成swap文件"
+if !isdirectory(expand("~/.vim/swapfiles"))
+    call mkdir($HOME . "/.vim/swapfiles", "p")
+endif
+set dir=~/.vim/swapfiles//
+
+set errorbells
+set visualbell
+
 set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
 set shortmess-=S
 set report=0 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
@@ -433,6 +448,10 @@ Plug 'morhetz/gruvbox'
 "    Plug 'roxma/vim-hug-neovim-rpc'
 "endif
 "let g:deoplete#enable_at_startup = 1
+
+Plug 'wakatime/vim-wakatime'
+
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()            " required
 colorscheme gruvbox
