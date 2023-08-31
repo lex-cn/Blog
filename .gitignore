@@ -16,3 +16,4 @@ package-lock.json
 .jekyll-cache/
 *.ffs_db
 *.out
+*~

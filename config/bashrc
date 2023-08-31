@@ -213,6 +213,12 @@ export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
 
 # hook function to send wakatime a tick
 pre_prompt_command() {
+
+    if command -v ~/.wakatime/wakatime-cli 1>/dev/null 2>&1; then
+        return;
+    fi
+
+    PS1+="\[\033[1;33m\]\$(git_branch)\[\e[0m\]"
     version="1.0.0"
     entity=$(echo $(fc -ln -0) | cut -d ' ' -f1)
     [ -z "$entity" ] && return # $entity is empty or only whitespace
@@ -221,3 +227,4 @@ pre_prompt_command() {
 }
 
 PROMPT_COMMAND="pre_prompt_command; $PROMPT_COMMAND"
+
