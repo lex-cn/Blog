@@ -79,7 +79,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 let mapleader=" "
 let g:Lf_ShortcutF = "<leader>ff"
-let Lf_Gtagsconf=expand('~/.gtags.conf')
+let g:Lf_Gtagsconf=expand('~/.gtags.conf')
 let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_RootMarkers = ['.project', '.git']
 let g:Lf_WindowPosition = 'popup'
@@ -173,4 +173,5 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/c.vim', {'for':['c','cpp']}
 
 call plug#end()            " required
-colorscheme monokai
+colorscheme gruvbox                                                                                                                                                                      
+set bg=dark                                                                                                                                                                              
