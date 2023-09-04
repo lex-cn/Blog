@@ -15,6 +15,11 @@ set number              " 设置行号
 set hlsearch
 set cc=81
 set showmatch           " 显示匹配的括号
+set incsearch           " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
+set autoread
+set autowrite
+set autochdir "设置根据打开文件自动更换目录
+
 
 set undofile  "使得即使在文件关闭后也可以维护撤消历史记录
 if !isdirectory(expand("~/.vim/undofiles"))
@@ -34,6 +39,13 @@ if !isdirectory(expand("~/.vim/swapfiles"))
 endif
 set dir=~/.vim/swapfiles//
 
+augroup VimG
+    au!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufRead      *.sh        set filetype=bash
+    au BufRead      *.snippets  set filetype=snippets
+    au BufWritePre  *.c,*.py,*.sh   :%s/\s\+$//e 
+augroup END
 
 command! InsPlug :! curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -171,6 +183,24 @@ let g:gutentags_trace = 0 "调试程序
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/c.vim', {'for':['c','cpp']}
+
+
+Plug 'dense-analysis/ale'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_set_loclist = 0
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+let g:ale_lint_on_text_changed='never' "文件内容发生变化时不检查
+let g:ale_lint_on_enter = 0  "打开文件时不检查
+
+"使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
+let g:ale_linters = {
+    \   'c++': ['clang'],
+    \   'c': ['clang'],
+    \   'python': ['pylint'],
+    \}
+        
+
 
 call plug#end()            " required
 colorscheme gruvbox                                                                                                                                                                      
