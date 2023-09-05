@@ -39,14 +39,6 @@ if !isdirectory(expand("~/.vim/swapfiles"))
 endif
 set dir=~/.vim/swapfiles//
 
-augroup VimG
-    au!
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-    au BufRead      *.sh        set filetype=bash
-    au BufRead      *.snippets  set filetype=snippets
-    au BufWritePre  *.c,*.py,*.sh   :%s/\s\+$//e 
-augroup END
-
 command! InsPlug :! curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if empty(glob($HOME."/.vim/autoload/plug.vim"))
@@ -200,7 +192,19 @@ let g:ale_linters = {
     \   'python': ['pylint'],
     \}
         
+Plug 'vim-autoformat/vim-autoformat'
+let g:autoformat_autoindent = 1
+let g:autoformat_retab = 1
+let g:autoformat_remove_trailing_spaces = 1
 
+augroup VimG
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    autocmd BufRead      *.sh        set filetype=bash
+    autocmd BufRead      *.snippets  set filetype=snippets
+    autocmd BufWritePre  *.c,*.py,*.sh   :%s/\s\+$//e 
+    autocmd FileType vim,tex let b:autoformat_autoindent=0
+augroup END
 
 call plug#end()            " required
 colorscheme gruvbox                                                                                                                                                                      
