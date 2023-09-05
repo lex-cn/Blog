@@ -150,7 +150,7 @@ alias unix2dosall="find . -type f -exec unix2dos {} \;"
 alias setMySys='python3 ~/blog/config/setMySys.py'
 
 #cd() { builtin cd "$@" && ls -ltrha; }
-alias du='du -h --max-depth=1'
+alias du='du --max-depth=1'
 
 # Install Ruby Gems to ~/gems' >> ~/.bashrc
 export GEM_HOME="$HOME/.gems"
