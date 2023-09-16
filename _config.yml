@@ -232,7 +232,16 @@ defaults:
       type: math
     values:
       layout: page
-
+  - scope:
+      path: ""
+      type: mach
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: soft
+    values:
+      layout: page
 
 
 ## => Plugins
