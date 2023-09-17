@@ -234,6 +234,7 @@ defaults:
       layout: article
       aside:
         toc: true
+      pageview: true
   - scope:
       path: ""
       type: mach
