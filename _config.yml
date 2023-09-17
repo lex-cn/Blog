@@ -232,6 +232,8 @@ defaults:
       type: math
     values:
       layout: article
+      aside:
+        toc: true
   - scope:
       path: ""
       type: mach
