@@ -226,7 +226,10 @@ defaults:
       path: ""
       type: read
     values:
-      layout: page
+      layout: article
+      aside:
+        toc: true
+      pageview: true
   - scope:
       path: ""
       type: math
@@ -239,12 +242,18 @@ defaults:
       path: ""
       type: mach
     values:
-      layout: page
+      layout: article
+      aside:
+        toc: true
+      pageview: true
   - scope:
       path: ""
       type: soft
     values:
-      layout: page
+      layout: article
+      aside:
+        toc: true
+      pageview: true
 
 
 ## => Plugins
