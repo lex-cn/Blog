@@ -231,7 +231,7 @@ defaults:
       path: ""
       type: math
     values:
-      layout: page
+      layout: article
   - scope:
       path: ""
       type: mach
