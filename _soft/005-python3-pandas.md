@@ -257,3 +257,209 @@ df[df.eval("Salary_in_1000>=100 & (Age <60) & FT_Team.str.startswith('S').values
 - [numpy中实现ndarray数组返回符合特定条件的索引方法_python_脚本之家](https://www.jb51.net/article/138290.htm)
 - [从 Pandas 小白到 Pandas 能手 | 远行的舟](https://www.longzf.com/from_Pandas-wan_to_Pandas-master/)
 - [pandas条件查询条件筛选优化_zypaslx的专栏-CSDN博客](https://blog.csdn.net/zypaslx/article/details/108647971)
+
+
+---
+created: 2023-09-03T23:55:48 (UTC +08:00)
+tags: [python重置索引]
+source: https://blog.csdn.net/qq_51392112/article/details/130669791
+author: 成就一亿技术人!
+---
+
+# 【Python_Pandas】reset_index() 函数解析_python重置索引_笃℃的博客-CSDN博客
+
+> ## Excerpt
+> 【Python_Pandas】reset_index() 函数解析_python重置索引
+
+---
+## 【Python\_Pandas】[reset\_index](https://so.csdn.net/so/search?q=reset_index&spm=1001.2101.3001.7020)函数解析
+
+### 文章目录
+
+-   [【Python\_Pandas】reset\_index函数解析](https://blog.csdn.net/qq_51392112/article/details/130669791#Python_Pandasreset_index_0)
+-   -   [1\. 介绍](https://blog.csdn.net/qq_51392112/article/details/130669791#1__2)
+    -   [2\. 示例](https://blog.csdn.net/qq_51392112/article/details/130669791#2__21)
+    -   -   [2.1 参数drop](https://blog.csdn.net/qq_51392112/article/details/130669791#21_drop_22)
+        -   [2.2 参数inplace](https://blog.csdn.net/qq_51392112/article/details/130669791#22_inplace_45)
+        -   [2.3 参数level](https://blog.csdn.net/qq_51392112/article/details/130669791#23_level_71)
+        -   [2.4 参数col\_level](https://blog.csdn.net/qq_51392112/article/details/130669791#24_col_level_101)
+        -   [2.5 参数col\_fill](https://blog.csdn.net/qq_51392112/article/details/130669791#25_col_fill_126)
+    -   [参考](https://blog.csdn.net/qq_51392112/article/details/130669791#_163)
+
+## 1\. 介绍
+
+pandas.DataFrame.reset\_index
+
+```
+reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
+```
+
+1）函数作用：
+
+-   重置索引或其level。
+    -   重置数据帧的索引，并使用默认索引。如果数据帧具有多重索引，则此方法可以删除一个或多个level。
+
+2）参数：
+
+-   drop: 重新设置索引后是否将原索引作为新的一列并入DataFrame，默认为**False**
+-   inplace: 是否在原DataFrame上改动，默认为False
+-   level: 如果索引(index)有多个列，仅从索引中删除level指定的列，默认删除所有列
+-   col\_level: 如果列名(columns)有多个级别，决定被删除的索引将插入哪个级别，默认插入第一级
+-   col\_fill: 如果列名(columns)有多个级别，决定其他级别如何命名
+
+3）返回
+
+-   DataFrame or None。具有新索引的数据帧，如果inplace=True，则无索引。
+
+## 2\. 示例
+
+### 2.1 参数drop
+
+-   False：表示重新设置索引后，将原索引作为新的一列并入DataFrame，
+-   True：表示删除原索引
+
+```
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame([('bird', 389.0), ('bird', 24.0), ('mammal', 80.5), ('mammal', np.nan)],
+                  index=['falcon', 'parrot', 'lion', 'monkey'], columns=('class', 'max_speed'))
+print(df)
+print('\n')
+
+df1 = df.reset_index()
+print(df1)
+print('\n')
+
+df2 = df.reset_index(drop=True)
+print(df2)
+```
+
+-   输出：
+    ![在这里插入图片描述](%E3%80%90Python_Pandas%E3%80%91reset_index()%20%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90_python%E9%87%8D%E7%BD%AE%E7%B4%A2%E5%BC%95_%E7%AC%83%E2%84%83%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2/c83a584bd04f43ca97de6b4dc0b9efba.png)
+
+### 2.2 参数inplace
+
+-   True表示：在原DataFrame上修改，返回为None
+-   False：将修改后的DataFrame作为新的对象返回
+
+```
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame([('bird', 389.0), ('bird', 24.0), ('mammal', 80.5), ('mammal', np.nan)],
+                  index=['falcon', 'parrot', 'lion', 'monkey'], columns=('class', 'max_speed'))
+print(df)
+print('\n')
+
+df1 = df.reset_index()
+print(df1)
+print('\n')
+
+df2 = df.reset_index(inplace=True)
+print(df2)
+print('\n')
+print(df)
+```
+
+-   输出：
+    ![在这里插入图片描述](%E3%80%90Python_Pandas%E3%80%91reset_index()%20%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90_python%E9%87%8D%E7%BD%AE%E7%B4%A2%E5%BC%95_%E7%AC%83%E2%84%83%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2/473a055c27d14d05bc7406e1abb07203.png)
+
+### 2.3 参数level
+
+如果索引有多个列，仅从索引中删除由level指定的列，默认删除所有列。
+
+-   输入整数时表示将index的names中下标为level的索引删除；
+-   输入为字符串时表示将名字为level的索引删除
+
+```
+import pandas as pd
+import numpy as np
+
+index = pd.MultiIndex.from_tuples([('bird', 'falcon'), ('bird', 'parrot'), ('mammal', 'lion'), ('mammal', 'monkey')], names=['class', 'name'])
+columns = pd.MultiIndex.from_tuples([('speed', 'max'), ('species', 'type')])
+df = pd.DataFrame([(389.0, 'fly'), ( 24.0, 'fly'), ( 80.5, 'run'), (np.nan, 'jump')], index=index, columns=columns)
+
+print(df)
+print('\n')
+
+df0 = df.reset_index()
+print(df0)
+print('\n')
+
+df1 = df.reset_index(level=1)
+print(df1)
+print('\n')
+
+df2 = df.reset_index(level='name')
+print(df2)
+```
+
+-   输出：
+    ![在这里插入图片描述](%E3%80%90Python_Pandas%E3%80%91reset_index()%20%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90_python%E9%87%8D%E7%BD%AE%E7%B4%A2%E5%BC%95_%E7%AC%83%E2%84%83%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2/99cd510a09cd452493c258d9e03ac9e6.png)
+
+### 2.4 参数col\_level
+
+如果列名(columns)有多个级别，决定被删除的索引将插入哪个级别，默认插入第一级(col\_level=0)
+
+```
+import pandas as pd
+import numpy as np
+
+index = pd.MultiIndex.from_tuples([('bird', 'falcon'), ('bird', 'parrot'), ('mammal', 'lion'), ('mammal', 'monkey')], names=['class', 'name'])
+columns = pd.MultiIndex.from_tuples([('speed', 'max'), ('species', 'type')])
+df = pd.DataFrame([(389.0, 'fly'), ( 24.0, 'fly'), ( 80.5, 'run'), (np.nan, 'jump')], index=index, columns=columns)
+
+print(df)
+print('\n')
+
+df1 = df.reset_index(level=0, col_level=0)
+print(df1)
+print('\n')
+
+df2 = df.reset_index(level=0, col_level=1)
+print(df2)
+print('\n')
+```
+
+-   输出：
+    ![在这里插入图片描述](%E3%80%90Python_Pandas%E3%80%91reset_index()%20%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90_python%E9%87%8D%E7%BD%AE%E7%B4%A2%E5%BC%95_%E7%AC%83%E2%84%83%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2/fb670719ca4b491aa05fa1aff4320a44.png)
+
+### 2.5 参数col\_fill
+
+重置索引时被删除的索引只能插入一个级别，
+
+-   如果列名(columns)有多个级别，那么这个列的列名的其他级别如何命名就由col\_fill决定，默认不做填充，
+-   如果传入None则用被删除的索引的名字填充
+
+```python
+import pandas as pd
+import numpy as np
+
+index = pd.MultiIndex.from_tuples([('bird', 'falcon'), ('bird', 'parrot'), ('mammal', 'lion'), ('mammal', 'monkey')], names=['class', 'name'])
+columns = pd.MultiIndex.from_tuples([('speed', 'max'), ('species', 'type')])
+df = pd.DataFrame([(389.0, 'fly'), ( 24.0, 'fly'), ( 80.5, 'run'), (np.nan, 'jump')], index=index, columns=columns)
+
+print(df)
+print('\n')
+
+df0 = df.reset_index(level=0, col_level=0)
+print(df0)
+print('\n')
+
+df1 = df.reset_index(level=0, col_level=0, col_fill=None)
+print(df1)
+print('\n')
+
+df2 = df.reset_index(level=0, col_level=1, col_fill='species')
+print(df2)
+print('\n')
+
+df3 = df.reset_index(level=0, col_level=0, col_fill='genus')
+print(df3)
+print('\n')
+```
+
+## 参考
+
+【1】https://blog.csdn.net/weixin\_43298886/article/details/108090189
