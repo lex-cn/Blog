@@ -1,5 +1,5 @@
 ---
-title     : 
+title     :
 tags      :
 categories:
 excerpt   : 此处写摘要

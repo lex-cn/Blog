@@ -1,0 +1,15 @@
+
+
+
+
+
+
+## Unable to init server: Could not connect: Connection refused
+
+找到引用`matplotlib`的地方，添加如下代码
+
+```python
+matplotlib.use('Agg')
+```
+
+
