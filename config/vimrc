@@ -19,13 +19,8 @@ set incsearch           " 在搜索时，输入的词句的逐字符高亮（类
 set autoread
 set autowrite
 set autochdir "设置根据打开文件自动更换目录
-<<<<<<< HEAD
 set nowrap
 set cursorline
-=======
-set cursorline
-
->>>>>>> 1af2fc6f9e084aaabcb89d58b37a5a43a8e81bc7
 
 set undofile  "使得即使在文件关闭后也可以维护撤消历史记录
 if !isdirectory(expand("~/.vim/undofiles"))
