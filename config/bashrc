@@ -131,7 +131,7 @@ alias padoff="xinput set-prop 15 \"Device Enabled\" 0"
 alias padoff='synclient TouchpadOff=1'
 alias cpr='rsync -rltgoDh --info=progress2'
 alias rsmv='rsync -a  --info=progress2 --remove-source-files'
-alias cp='cp -rv '
+#alias cp='cp -rv '
 alias rm='trash'
 alias cgrep='grep -Rn --color'
 alias grep='grep --color'
