@@ -137,7 +137,6 @@ alias padoff='synclient TouchpadOff=1'
 alias cpr='rsync -rltgoDh --info=progress2'
 alias rsmv='rsync -a  --info=progress2 --remove-source-files'
 alias cp='cp -rv '
-alias rm='trash'
 alias cgrep='grep -Rn --color'
 alias grep='grep --color'
 alias md2a4report=" pandoc -s --pdf-engine=xelatex --highlight-style=tango -F pandoc-citeproc --dpi=300 -V CJKmainfont='WenQuanYi Micro Hei' -V fontsize=11pt -V documentclass=scrreprt -V papersize=a4"
