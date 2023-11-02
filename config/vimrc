@@ -19,7 +19,8 @@ set incsearch           " 在搜索时，输入的词句的逐字符高亮（类
 set autoread
 set autowrite
 set autochdir "设置根据打开文件自动更换目录
-
+set nowrap
+set cursorline
 
 set undofile  "使得即使在文件关闭后也可以维护撤消历史记录
 if !isdirectory(expand("~/.vim/undofiles"))
@@ -196,6 +197,8 @@ Plug 'vim-autoformat/vim-autoformat'
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
+
+Plug 'godlygeek/tabular'
 
 augroup VimG
     autocmd!
