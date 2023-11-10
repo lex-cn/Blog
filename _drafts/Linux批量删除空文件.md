@@ -22,7 +22,6 @@ find . -name "shuaige.txt" -exec rm -f {}
 ```bash
 find . -name "shuaige.txt" -ok rm -rf {} ;
 ```
-
    
 删除当前目录下面所有 test 文件夹下面的文件 
 
@@ -38,7 +37,7 @@ find . -name '.svn' -exec rm -rf {} ;
 
 注:
 
-1. {}和之间有一个空格 
+1. `{}`和之间有一个空格 
 2. find . -name 之间也有空格 
 3. exec 是一个后续的命令,{}内的内容代表前面查找出来的文件
 
