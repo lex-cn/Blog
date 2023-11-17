@@ -4,6 +4,7 @@
 	quotepath = false
 	filemode = false
 	editor = vim
+	autocrlf = false
 [gui]
 	encoding = utf-8
 [i18n "commit"]
