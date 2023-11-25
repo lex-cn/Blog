@@ -166,9 +166,6 @@ alias ftpNas="lftp -u anonymous,passwd -e \"set ftp:ssl-force yes\"   gdc.cddis.
 PS1=""
 PS1+="\[\033[1;32m\][${debian_chroot:+($debian_chroot)}\u@\h]\[\e[0m\]"
 
-## for nvim
-export PATH="$HOME/nvim/nvim/bin/:$HOME/nvim/node/bin/:$PATH"
-
 PATH=$PATH:/opt/bin/:~/.local/bin/:/usr/local/lib
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -224,3 +221,8 @@ pre_prompt_command() {
 PROMPT_COMMAND="pre_prompt_command; $PROMPT_COMMAND"
 
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/applications/
+
+## for nvim
+export PATH="$HOME/.nvim/nvim/bin/:$HOME/.nvim/node/bin/:$PATH"
+
+
