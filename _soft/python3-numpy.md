@@ -32,8 +32,8 @@ np.linalg.svd(m3)    # 奇异值分解
 
 np.diag(m3)         # 对角线
 np.trace(m3)    #  迹
-
 ```
+
 ##  numpy 求解线性标量方程组  `np.linalg.solve`
 
 求解

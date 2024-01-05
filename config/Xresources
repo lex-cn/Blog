@@ -3,8 +3,8 @@ UXTerm*termName: xterm-256color
 UXTerm*utf8Title: true
 UXTerm*fontMenu*fontdefault*Label: Default
 UXTerm*xftAntialias: true
-UXTerm*faceName: DejaVu Sans Mono:antialias=True:pixelsize=16
-UXTerm*faceNameDoublesize: WenQuanyi Micro Hei Mono:antialias=True:pixelsize=16
+UXTerm*faceName: Hack Nerd Font:style=Regular:antialias=True:pixelsize=20
+UXTerm*faceNameDoublesize: Hack Nerd Font:style=Regular:antialias=True:pixelsize=20
 UXTerm*faceSize: 16
 UXTerm*faceSize1: 16
 UXTerm*faceSize2: 16
@@ -24,8 +24,8 @@ XTerm*termName: xterm-256color
 XTerm*utf8Title: true
 XTerm*fontMenu*fontdefault*Label: Default
 XTerm*xftAntialias: true
-XTerm*faceName: DejaVu Sans Mono:antialias=True:pixelsize=16
-XTerm*faceNameDoublesize: WenQuanyi Micro Hei Mono:antialias=True:pixelsize=16
+XTerm*faceName: Hack Nerd Font:style=Regular:antialias=True:pixelsize=20
+XTerm*faceNameDoublesize: Hack Nerd Font:style=Regular:antialias=True:pixelsize=20
 XTerm*faceSize:  16
 XTerm*faceSize1: 16
 XTerm*faceSize2: 16
