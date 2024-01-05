@@ -220,7 +220,6 @@ pre_prompt_command() {
 
 PROMPT_COMMAND="pre_prompt_command; $PROMPT_COMMAND"
 
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/applications/
 
 ## for nvim
 export PATH="$HOME/.nvim/nvim/bin/:$HOME/.nvim/node/bin/:$PATH"
