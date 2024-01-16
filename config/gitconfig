@@ -32,3 +32,9 @@
 	sslVerify = false
 [https]
 	postBuffer = 1048576000
+
+[diff "pandoc"]
+    textconv=pandoc --to=markdown
+    prompt = false
+[alias]
+    wdiff = diff --word-diff=color --unified=1
