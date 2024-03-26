@@ -4,6 +4,8 @@ filetype on
 filetype plugin on
 filetype indent on    "自动检测文件类型并进行缩进高亮
 
+let mapleader=" "
+
 set expandtab           " 用空格代替制表符
 set tabstop=4           "设置制表符宽度"
 set softtabstop=4
@@ -82,7 +84,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.snippets/']
 Plug 'flazz/vim-colorschemes'
 
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-let mapleader=" "
 let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_Gtagsconf=expand('~/.gtags.conf')
 let g:Lf_WorkingDirectoryMode = 'AF'
@@ -215,7 +216,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:tex_conceal = ""
 let g:vim_markdown_conceal = 0
-
 
 call plug#end()            " required
 colorscheme gruvbox                                                                                                                                                                      
