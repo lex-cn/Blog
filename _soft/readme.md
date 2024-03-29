@@ -47,6 +47,5 @@ flatpak --> fdelete("delete config `rm -rf ~/.var/app/`")
 ```mermaid
 graph TD
     firefox
-
 ```
 
