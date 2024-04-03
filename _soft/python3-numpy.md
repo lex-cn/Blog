@@ -17,7 +17,7 @@ m1.reshape(5,2)    # 重置
 m1.dot(m2)    # 乘法
 m1*m2         # 不是矩阵乘法，而是按元素乘积。
 
-np.linalg.inv(m3) 
+np.linalg.inv(m3)
 np.linalg.pinv(m3) # 矩阵的逆与伪逆
 
 m3.dot(linalg.inv(m3))  # 单位矩阵
@@ -48,17 +48,17 @@ solution = np.linalg.solve(coeffs, depvars)
 
 ##  numpy 的矢量化
 
-np.meshgrid()函数
+`np.meshgrid()` 函数
 
 
 
 ## numpy 常见错误
 
-Np.nanstd()函数的返回值为nan
+`np.nanstd()` 函数的返回值为 `nan`。
 
 这种情况是由于所计算的序列当中出现以下几种情况
 
-There are three circumstances where `np.nanstd` might return _NaN_:
+There are three circumstances where `np.nanstd()` might return _NaN_:
 
 1.  If the input is empty 所输入的序列为空
 2.  If all of the elements in the input are `NaN` 输入的序列元素全部为nan值
