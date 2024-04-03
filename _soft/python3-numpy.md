@@ -4,7 +4,6 @@ name : numpy总结
 
 
 
-
 ```python
 import numpy as np
 
@@ -36,7 +35,7 @@ np.trace(m3)    #  迹
 
 ##  numpy 求解线性标量方程组  `np.linalg.solve`
 
-求解
+求解下面这个方程
 
 $$ 2x + 6y = 6, 5x + 3y = -9  $$
 
@@ -49,7 +48,6 @@ solution = np.linalg.solve(coeffs, depvars)
 ##  numpy 的矢量化
 
 `np.meshgrid()` 函数
-
 
 
 ## numpy 常见错误
