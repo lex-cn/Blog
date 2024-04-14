@@ -17,3 +17,6 @@ package-lock.json
 *.ffs_db
 *.out
 *~
+GPATH
+GTAGS
+GRTAGS

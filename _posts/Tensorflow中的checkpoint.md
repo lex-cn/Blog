@@ -10,7 +10,8 @@ toc       : true
 
 
 Tensorflow训练过程当中保存模型，通过一个回调函数来完成。
-回调函数可以是自定义的，当然也可以使用tf当中自带的函数。
+
+回调函数可以是自定义的，当然也可以使用 Tensorflow 当中自带的函数。
 
 
 ```python
@@ -23,14 +24,14 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=1)
 
 # Train the model with the new callback
-model.fit(train_images, 
-          train_labels,  
+model.fit(train_images,
+          train_labels,
           epochs=10,
           validation_data=(test_images, test_labels),
           callbacks=[cp_callback])  # Pass callback to training
 ```
 
-但当我们想每隔N个epochs的时候，保存一个模型，那么可以使用peroid参数。
+但当我们想每隔 N 个 epochs 的时候，保存一个模型，那么可以使用peroid参数。
 
 但是peroid参数即将被废弃，所以他们推荐使用`save_freq`，但这个参数的设置需要计算每个epoch当中的计算步骤数nstep，经过我的测试
 
