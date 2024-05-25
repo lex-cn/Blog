@@ -7,35 +7,38 @@ toc       : true
 
 
 ```mermaid
-graph LR
+mindmap
+    Soft
+        版本控制 Git
+        虚拟机
+            WSL
+            Virtualbox
+        软件包管理
+            apt
+            Flatpak
+            winget
+        文本编辑
+            Vscode
+            Vim
+        项目构建 make
+        多窗口管理 Tmux
 
-    SOFT -->  git
-    SOFT -->  python
-
-    SOFT   --> Virtualbox
-
-    SOFT   --> flatpak
-
-    subgraph edit
-        SOFT  --> vscode
-        SOFT  --> vim
-    end
 ```
-
 
 
 ### 常用的python库
 
 ```mermaid
-graph TD
-    Python --> pyenv&virtualenv
-    Python --> tensorflow
-    Python --> pytorch
-    Python --> glances
-    Python --> pandas
-    Python --> matplotlib
-    Python --> numpy
-    Python --> itertools
+mindmap
+    Python
+        pyenv + virtualenv
+        tensorflow
+        pytorch
+        glances
+        pandas
+        matplotlib
+        numpy
+        itertools
 ```
 
 flatpak --> fdelete("delete config `rm -rf ~/.var/app/`")
@@ -43,9 +46,9 @@ flatpak --> fdelete("delete config `rm -rf ~/.var/app/`")
 
 ### 其他的软件
 
-
 ```mermaid
-graph TD
-    firefox
+mindmap 
+    其他软件 
+        Firefox
 ```
 
