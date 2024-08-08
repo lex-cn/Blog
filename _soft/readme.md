@@ -48,7 +48,7 @@ flatpak --> fdelete("delete config `rm -rf ~/.var/app/`")
 
 ```mermaid
 mindmap 
-    其他软件 
+    其他软件
         Firefox
 ```
 
