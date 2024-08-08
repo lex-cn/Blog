@@ -72,7 +72,7 @@ endfunc
 
 call plug#begin()
 
-Plug 'wakatime/vim-wakatime'
+"Plug 'wakatime/vim-wakatime'
 Plug 'dstein64/vim-startuptime'
 Plug 'itchyny/lightline.vim'
 set laststatus=2 "显示状态栏
@@ -218,5 +218,5 @@ let g:tex_conceal = ""
 let g:vim_markdown_conceal = 0
 
 call plug#end()            " required
-colorscheme gruvbox                                                                                                                                                                      
+colorscheme monokai
 set bg=dark                                                                                                                                                                              
