@@ -72,7 +72,7 @@ endfunc
 
 call plug#begin()
 
-"Plug 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 Plug 'dstein64/vim-startuptime'
 Plug 'itchyny/lightline.vim'
 set laststatus=2 "显示状态栏
