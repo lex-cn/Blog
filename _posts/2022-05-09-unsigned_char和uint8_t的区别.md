@@ -8,6 +8,7 @@ published  : true
 toc    : true
 ---
 
+
 今天发现有些代码当中使用`uint8_t`代替`unsigned char`来对数据进行声明。
 
 大致进行搜索了一下，基本内容如下

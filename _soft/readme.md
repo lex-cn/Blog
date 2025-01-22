@@ -21,7 +21,7 @@ mindmap
             Vscode
             Vim
         项目构建 make
-        多窗口管理 Tmux
+        多窗口管理 Tmux/fish
 
 ```
 
@@ -47,8 +47,11 @@ flatpak --> fdelete("delete config `rm -rf ~/.var/app/`")
 ### 其他的软件
 
 ```mermaid
-mindmap 
-    其他软件
+mindmap
+    Others
         Firefox
+        Edge
 ```
+
+> mermaid语法中，节点后应该保持空格
 
